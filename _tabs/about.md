@@ -7,11 +7,11 @@ order: 4
 
 ## 个人简介
 
-你好，我是 **文晨（Wenchen）**，一名热爱技术与创作的开发者。
+你好，我是 **文晨（Wenchen）**，这里是我的个人博客。
 
-- 🔭 正在探索前端开发、自动化工具与开源项目
-- 🌱 喜欢折腾新技术，也热衷于记录学习过程
-- 💬 欢迎通过邮件或 GitHub 与我交流
+- 记录随笔，分享技术，展示作品
+- 持续整理学习过程、项目实践与个人内容
+- 欢迎通过邮箱、GitHub、B站和 X 与我交流
 
 ## 技能栈
 
@@ -24,5 +24,7 @@ order: 4
 
 - 📧 Email: [wenchen1195@qq.com](mailto:wenchen1195@qq.com)
 - 🐙 GitHub: [https://github.com/XiZu233](https://github.com/XiZu233)
+- 📺 Bilibili: [https://space.bilibili.com/2071163183](https://space.bilibili.com/2071163183)
+- ✖ X: [https://x.com/xizu233](https://x.com/xizu233)
 
 > 本站由 [Jekyll](https://jekyllrb.com/) + [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) 主题驱动，托管于 [GitHub Pages](https://pages.github.com/)。
