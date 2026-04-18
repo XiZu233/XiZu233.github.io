@@ -122,9 +122,9 @@ comments:
   # Giscus options › https://giscus.app
   giscus:
     repo: XiZu233/XiZu233.github.io # <gh-username>/<repo>
-    repo_id: "1213249436"
+    repo_id: "R_kgDOSFC3nA"
     category: Announcements
-    category_id: # 请从 https://giscus.app/zh-CN 获取
+    category_id: "DIC_kwDOSFC3nM4C7HSg"
     mapping: pathname
     strict: 0
     input_position: bottom
