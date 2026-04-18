@@ -30,6 +30,14 @@ tags: [Jekyll, Chirpy, GitHub Pages, VSCode, Codex]
 ## 实际搭建过程
 
 ### 1. 先确认项目到底是什么
+关于博客的网站搭建，直接使用的kimi code部署生成，最开始是hexo+butterfly的技术栈，后来在使用搜索引擎查询其他内容时候，发现butterfly的主题不太合我的胃口，不过可以直接部署使用，还是很方便。
+
+对于网站的部署，选用的GitHub page。注册账号->新建仓库（建议与账号同名称）-> 进入仓库 setting 选择pages切换到mian分支，然后选择action部署。这部分内容可自行查阅其他部署教程。下附我参考的内容。
+> 【避坑篇】使用Github Pages搭建个人主页or博客网站【上】 - 春枫禾旭的文章 - 知乎
+https://zhuanlan.zhihu.com/p/641525444
+> 零基础小白如何搭建自己的 github.io 个人网站: https://pianfan.github.io/build_own_website/
+
+因为部署完成后，对于一下子生成的代码仓库。不知道如何处理，于是准备了codex和kimi帮助我理解仓库的代码结构。每个文件是干什么的。于是就有了接下来的内容。
 
 一开始最重要的不是马上写文章，而是先搞清楚当前项目的真实技术栈。通过查看目录结构和配置文件，可以确定这是一个基于 `Jekyll` 的博客项目，主题使用的是 `Chirpy`。
 
