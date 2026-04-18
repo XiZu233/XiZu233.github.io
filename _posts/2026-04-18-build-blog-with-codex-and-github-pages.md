@@ -1,6 +1,6 @@
 ---
 title: 我是如何借助 Codex、KimiCode、VSCode 和 GitHub Pages 搭建个人博客的
-date: 2026-04-18 10:00:00 +0800
+date: 2026-04-18 02:00:00 +0800
 categories: [教程, 建站]
 tags: [Jekyll, Chirpy, GitHub Pages, VSCode, Codex]
 ---
