@@ -252,6 +252,39 @@ div[class^='language-'] {
   border: 1px solid var(--main-border-color);
 }
 
+/* 代码块内容一体化：移除内部分割 */
+.highlight table {
+  border: none;
+  border-collapse: collapse;
+  margin: 0;
+  width: 100%;
+}
+
+.highlight table td {
+  border: none;
+  padding: 0;
+}
+
+/* 行号区域 */
+.highlight table td.rouge-gutter,
+.highlight table td.gutter,
+.highlight table td.lineno {
+  background: transparent;
+  border-right: none;
+  padding-left: 1rem;
+  padding-right: 0.75rem;
+  text-align: right;
+  user-select: none;
+}
+
+/* 代码区域 */
+.highlight table td.rouge-code,
+.highlight table td.code {
+  background: transparent;
+  padding-left: 0.75rem;
+  padding-right: 1rem;
+}
+
 .code-header {
   border-bottom: 1px solid var(--main-border-color);
   background: var(--code-header-bg);
