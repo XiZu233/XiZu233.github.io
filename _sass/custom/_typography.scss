@@ -1,0 +1,201 @@
+/* ========================================
+   Typography - 杂志风排版系统
+   结构优于装饰：大字号 + 字体对比 + 留白
+   ======================================== */
+
+/* ===== 标题系统：衬线 ===== */
+h1, h2, h3, h4, h5, h6,
+.post-title,
+.page-title,
+#toc-title {
+  font-family: var(--font-serif-zh);
+  font-weight: 700;
+  color: var(--heading-color);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--main-border-color);
+}
+
+h3 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin-top: 2rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+/* ===== 正文：非衬线 ===== */
+p, li, td, th, dd, dt,
+.post-content p,
+.page-content p {
+  font-family: var(--font-sans-zh);
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: var(--text-color);
+}
+
+/* 首段放大（lead） */
+.post-content > p:first-of-type,
+.page-content > p:first-of-type {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-muted-color);
+}
+
+/* ===== 引用块：衬线 + 左侧竖线 ===== */
+blockquote {
+  font-family: var(--font-serif-zh);
+  font-size: 1.125rem;
+  font-style: italic;
+  color: var(--blockquote-text-color);
+  border-left: 3px solid var(--blockquote-border-color);
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  margin: 2rem 0;
+  background: transparent;
+}
+
+blockquote p {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.7;
+}
+
+/* ===== 代码：等宽 ===== */
+code, kbd, pre,
+.highlighter-rouge {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+}
+
+/* ===== 元数据：等宽小字 ===== */
+.post-meta,
+.page-meta,
+.post-date,
+.read-time,
+.post-tag,
+#lastmod,
+.footnotes ol li {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-muted-color);
+}
+
+/* ===== 文章列表项 ===== */
+.post-preview {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--main-border-color);
+}
+
+.post-preview:first-child {
+  padding-top: 0.5rem;
+}
+
+.post-preview .post-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+
+.post-preview .post-title a {
+  color: var(--heading-color);
+  text-decoration: none;
+  border-bottom: none;
+  transition: opacity 0.2s ease;
+}
+
+.post-preview .post-title a:hover {
+  opacity: 0.7;
+}
+
+.post-preview .post-meta {
+  margin-bottom: 0.75rem;
+}
+
+.post-preview .post-content {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-muted-color);
+}
+
+/* ===== 分页标题 ===== */
+.pagination {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+}
+
+/* ===== 脚注 ===== */
+.footnotes {
+  font-family: var(--font-sans-zh);
+  font-size: 0.9375rem;
+  border-top: 1px solid var(--main-border-color);
+  padding-top: 1.5rem;
+  margin-top: 3rem;
+}
+
+.footnotes::before {
+  content: 'References';
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted-color);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* ===== 目录 ===== */
+#toc-wrapper {
+  font-family: var(--font-sans-zh);
+}
+
+#toc-wrapper a {
+  font-size: 0.9375rem;
+  color: var(--text-muted-color);
+  border-left: 2px solid transparent;
+  padding-left: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+#toc-wrapper a:hover,
+#toc-wrapper a.is-active {
+  color: var(--text-color);
+  border-left-color: var(--ink);
+}
+
+/* ===== 响应式调整 ===== */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.875rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .post-preview .post-title {
+    font-size: 1.25rem;
+  }
+  
+  p, li {
+    font-size: 1rem;
+  }
+}

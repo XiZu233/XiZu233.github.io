@@ -1,0 +1,327 @@
+/* ========================================
+   Components - 杂志风组件覆盖
+   结构优于装饰：边框 + 留白 + 字体对比
+   ======================================== */
+
+/* ===== 卡片：无阴影，细边框 ===== */
+.card,
+.post-card,
+.page-card {
+  background: var(--card-bg);
+  border: 1px solid var(--main-border-color);
+  border-radius: 0;
+  box-shadow: none !important;
+}
+
+/* ===== 顶栏 ===== */
+#topbar-wrapper {
+  background: var(--topbar-bg);
+  border-bottom: 1px solid var(--topbar-border-color);
+}
+
+#topbar {
+  font-family: var(--font-sans-zh);
+}
+
+#topbar .nav-link {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--topbar-text-color);
+}
+
+#topbar .nav-link:hover {
+  color: var(--link-hover-color);
+}
+
+#topbar-title {
+  font-family: var(--font-serif-zh);
+  font-weight: 600;
+  color: var(--topbar-text-color);
+}
+
+/* ===== 侧边栏 ===== */
+#sidebar {
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--main-border-color);
+}
+
+#sidebar .profile-wrapper {
+  padding: 2rem 1.5rem;
+}
+
+#sidebar .site-title {
+  font-family: var(--font-serif-zh);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 1rem;
+}
+
+#sidebar .site-subtitle {
+  font-family: var(--font-sans-zh);
+  font-size: 0.875rem;
+  color: var(--text-muted-color);
+  margin-top: 0.5rem;
+}
+
+#sidebar .nav-item {
+  font-family: var(--font-sans-zh);
+  font-size: 0.9375rem;
+}
+
+#sidebar .nav-item span {
+  font-weight: 500;
+}
+
+/* ===== 标签 ===== */
+.post-tag,
+.tag-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: transparent;
+  border: 1px solid var(--tag-border);
+  border-radius: 0;
+  padding: 0.25rem 0.625rem;
+  color: var(--text-muted-color);
+  transition: all 0.2s ease;
+}
+
+.post-tag:hover,
+.tag-label:hover {
+  background: var(--tag-hover);
+  color: var(--text-color);
+  border-color: var(--text-color);
+}
+
+/* ===== 按钮 ===== */
+.btn,
+.btn-outline-primary,
+.btn-outline-secondary {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 0;
+  border-width: 1px;
+  padding: 0.5rem 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--btn-hover-bg);
+}
+
+/* ===== 文章内图片 ===== */
+.post-content img,
+.page-content img {
+  border-radius: 0;
+  border: 1px solid var(--main-border-color);
+}
+
+/* 排除表情符号和小图标 */
+.post-content img.emoji,
+.post-content img[src*="icon"],
+.post-content img[src*="badge"],
+.post-content img[src*="logo"],
+.post-content img[width="16"],
+.post-content img[width="20"],
+.post-content img[width="24"] {
+  border: none !important;
+}
+
+.post-content figure,
+.page-content figure {
+  margin: 2.5rem 0;
+}
+
+.post-content figcaption,
+.page-content figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-align: center;
+  color: var(--text-muted-color);
+  margin-top: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+/* ===== 表格 ===== */
+table {
+  font-family: var(--font-sans-zh);
+  font-size: 0.9375rem;
+  border-collapse: collapse;
+  border: 1px solid var(--tb-border-color);
+}
+
+th {
+  font-family: var(--font-serif-zh);
+  font-weight: 600;
+  background: var(--paper-tint);
+  border-bottom: 2px solid var(--main-border-color);
+  padding: 0.75rem 1rem;
+}
+
+td {
+  padding: 0.625rem 1rem;
+  border-bottom: 1px solid var(--main-border-color);
+}
+
+tr:nth-child(odd) {
+  background: var(--tb-odd-bg);
+}
+
+/* ===== 分割线 ===== */
+hr {
+  border: none;
+  border-top: 1px solid var(--main-border-color);
+  margin: 3rem 0;
+}
+
+/* ===== 搜索框 ===== */
+#search-input {
+  font-family: var(--font-sans-zh);
+  border-radius: 0;
+  border: 1px solid var(--main-border-color);
+  background: var(--card-bg);
+}
+
+.search-result-item {
+  border-bottom: 1px solid var(--main-border-color);
+  padding: 1.25rem 0;
+}
+
+.search-result-title {
+  font-family: var(--font-serif-zh);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+/* ===== 归档页 ===== */
+#archives .year {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+#archives .month {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted-color);
+}
+
+#archives .post-title {
+  font-family: var(--font-serif-zh);
+  font-weight: 600;
+}
+
+#archives .post-day {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-muted-color);
+}
+
+/* ===== 分类/标签页 ===== */
+#categories .card-header,
+#tags .card-header {
+  font-family: var(--font-serif-zh);
+  font-weight: 600;
+  background: transparent;
+  border-bottom: 1px solid var(--main-border-color);
+}
+
+#categories .list-group-item,
+#tags .list-group-item {
+  font-family: var(--font-sans-zh);
+  border: none;
+  border-bottom: 1px solid var(--main-border-color);
+  padding: 0.875rem 1.25rem;
+}
+
+#categories .list-group-item:last-child,
+#tags .list-group-item:last-child {
+  border-bottom: none;
+}
+
+/* ===== 代码块 ===== */
+div[class^='language-'] {
+  border-radius: 0;
+  border: 1px solid var(--main-border-color);
+}
+
+.code-header {
+  border-bottom: 1px solid var(--main-border-color);
+  background: var(--code-header-bg);
+}
+
+/* 保留代码块语言标识显示 */
+.code-header::before {
+  /* Chirpy 默认会显示语言名称，此处不覆盖 */
+}
+
+/* ===== 回到顶部 ===== */
+#back-to-top {
+  border-radius: 0;
+  border: 1px solid var(--main-border-color);
+  background: var(--card-bg);
+}
+
+/* ===== 分享按钮 ===== */
+.share-wrapper .share-icons .fa-fw {
+  font-size: 0.875rem;
+}
+
+/* ===== 页脚 ===== */
+#footer {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted-color);
+  border-top: 1px solid var(--main-border-color);
+  padding: 2rem 0;
+}
+
+#footer a {
+  color: var(--text-muted-color);
+}
+
+/* ===== 友情链接 ===== */
+#friend-links .card-title {
+  font-family: var(--font-serif-zh);
+  font-weight: 600;
+}
+
+/* ===== 灯箱 ===== */
+#image-wrapper img {
+  border-radius: 0;
+}
+
+/* ===== 滚动条 ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--main-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-border-color);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-faint);
+}
+
+/* ===== 选中文字 ===== */
+::selection {
+  background: rgba(10, 10, 11, 0.12);
+  color: inherit;
+}
+
+html[data-mode='dark'] ::selection {
+  background: rgba(241, 239, 234, 0.15);
+}

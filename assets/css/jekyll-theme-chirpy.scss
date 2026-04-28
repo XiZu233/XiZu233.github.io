@@ -1,0 +1,18 @@
+---
+---
+
+@import 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* ========================================
+   Magazine Editorial Style - 墨水经典
+   Based on guizang-ppt-skill design system
+   ======================================== */
+
+@import 'custom/fonts';
+@import 'custom/colors';
+@import 'custom/typography';
+@import 'custom/components';

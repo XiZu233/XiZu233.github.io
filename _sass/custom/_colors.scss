@@ -1,0 +1,122 @@
+/* ========================================
+   Ink Classic Theme - 墨水经典
+   纯墨黑 + 暖米白
+   ======================================== */
+
+:root {
+  /* ===== 墨水经典主题色 ===== */
+  --ink: #0a0a0b;
+  --ink-rgb: 10, 10, 11;
+  --paper: #f1efea;
+  --paper-rgb: 241, 239, 234;
+  --paper-tint: #e8e5de;
+  --ink-tint: #18181a;
+  --ink-muted: rgba(10, 10, 11, 0.55);
+  --ink-faint: rgba(10, 10, 11, 0.25);
+  
+  /* ===== 覆盖 Chirpy 变量 ===== */
+  --main-bg: var(--paper);
+  --main-bg-rgb: var(--paper-rgb);
+  --card-bg: #ffffff;
+  --card-bg-rgb: 255, 255, 255;
+  --sidebar-bg: var(--paper-tint);
+  --sidebar-bg-rgb: 232, 229, 222;
+  
+  /* 文字颜色 */
+  --text-color: var(--ink);
+  --text-color-rgb: var(--ink-rgb);
+  --heading-color: var(--ink);
+  --text-muted-color: var(--ink-muted);
+  --text-muted-highlight-color: var(--ink);
+  
+  /* 链接 */
+  --link-color: var(--ink-tint);
+  --link-underline-color: var(--ink-faint);
+  --link-hover-color: var(--ink);
+  
+  /* 边框 */
+  --main-border-color: rgba(10, 10, 11, 0.08);
+  --btn-border-color: rgba(10, 10, 11, 0.15);
+  --btn-bg: transparent;
+  --btn-hover-bg: var(--paper-tint);
+  
+  /* 引用块 */
+  --blockquote-border-color: var(--ink);
+  --blockquote-text-color: var(--ink-muted);
+  
+  /* 代码 */
+  --code-bg: var(--paper-tint);
+  --code-header-bg: var(--paper-tint);
+  --code-header-muted-color: var(--ink-faint);
+  --code-lang-color: var(--ink-muted);
+  
+  /* 高亮 */
+  --highlight-bg: rgba(10, 10, 11, 0.06);
+  --highlight-lineno-color: var(--ink-faint);
+  
+  /* 表格 */
+  --tb-odd-bg: rgba(10, 10, 11, 0.02);
+  --tb-even-bg: transparent;
+  --tb-border-color: var(--main-border-color);
+  
+  /* 标签 */
+  --tag-bg: transparent;
+  --tag-hover: var(--paper-tint);
+  --tag-border: var(--main-border-color);
+  
+  /* 搜索 */
+  --search-wrapper-bg: var(--card-bg);
+  --search-tag-bg: var(--paper-tint);
+  
+  /* 顶栏 */
+  --topbar-bg: var(--paper);
+  --topbar-border-color: var(--main-border-color);
+  --topbar-text-color: var(--ink);
+  
+  /* 阴影 - 杂志风不用阴影，用边框 */
+  --card-shadow: none;
+  --sidebar-shadow: none;
+}
+
+/* ===== Dark Mode 适配 ===== */
+html[data-mode='dark'] {
+  --main-bg: var(--ink);
+  --main-bg-rgb: var(--ink-rgb);
+  --card-bg: var(--ink-tint);
+  --card-bg-rgb: 24, 24, 26;
+  --sidebar-bg: #0f0f10;
+  --sidebar-bg-rgb: 15, 15, 16;
+  
+  --text-color: var(--paper);
+  --text-color-rgb: var(--paper-rgb);
+  --heading-color: var(--paper);
+  --text-muted-color: rgba(241, 239, 234, 0.55);
+  
+  --link-color: var(--paper-tint);
+  --link-hover-color: var(--paper);
+  --link-underline-color: rgba(241, 239, 234, 0.2);
+  
+  --main-border-color: rgba(241, 239, 234, 0.08);
+  --btn-border-color: rgba(241, 239, 234, 0.15);
+  --btn-hover-bg: rgba(241, 239, 234, 0.08);
+  
+  --blockquote-border-color: var(--paper);
+  --blockquote-text-color: rgba(241, 239, 234, 0.65);
+  
+  --code-bg: rgba(241, 239, 234, 0.06);
+  --code-header-bg: rgba(241, 239, 234, 0.04);
+  
+  --highlight-bg: rgba(241, 239, 234, 0.06);
+  --tb-odd-bg: rgba(241, 239, 234, 0.03);
+  --tb-border-color: var(--main-border-color);
+  
+  /* 顶栏 */
+  --topbar-bg: var(--ink);
+  --topbar-border-color: rgba(241, 239, 234, 0.08);
+  --topbar-text-color: var(--paper);
+}
+
+/* 
+ * 暗色模式由 Chirpy 主题通过 html[data-mode="dark"] 控制
+ * 不额外添加 @media 查询，避免与主题 JS 切换逻辑冲突
+ */
