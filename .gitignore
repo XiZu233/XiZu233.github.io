@@ -25,3 +25,14 @@ package-lock.json
 # Misc
 _sass/vendors
 assets/js/dist
+
+# Claude Code 工作目录（plan、memory）
+.claude/
+
+# Playwright 本地预览缓存
+.playwright-mcp/
+preview-*.png
+
+# 临时素材
+原UI截图/
+博客UI截图/
