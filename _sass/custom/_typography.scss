@@ -50,12 +50,13 @@ p, li, td, th, dd, dt,
   color: var(--text-color);
 }
 
-/* 首段放大（lead） */
+/* 首段放大（lead）：仅放大字号，保持正文色提升可读性 */
 .post-content > p:first-of-type,
 .page-content > p:first-of-type {
-  font-size: 1.125rem;
+  font-size: 1.1875rem;
   line-height: 1.8;
-  color: var(--text-muted-color);
+  color: var(--text-color);
+  font-weight: 400;
 }
 
 /* ===== 引用块：衬线 + 左侧竖线 ===== */
@@ -83,7 +84,7 @@ code, kbd, pre,
   font-size: 0.875rem;
 }
 
-/* ===== 元数据：等宽小字 ===== */
+/* ===== 元数据：等宽小字（中英混排不强制大写） ===== */
 .post-meta,
 .page-meta,
 .post-date,
@@ -94,8 +95,13 @@ code, kbd, pre,
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   letter-spacing: 0.02em;
-  text-transform: uppercase;
   color: var(--text-muted-color);
+}
+
+/* 仅为纯英文文本块保留大写排版（如 "Issue"、"Read"） */
+.meta-en {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 /* ===== 文章列表项 ===== */
@@ -172,13 +178,19 @@ code, kbd, pre,
   color: var(--text-muted-color);
   border-left: 2px solid transparent;
   padding-left: 0.75rem;
-  transition: all 0.2s ease;
+  transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  display: inline-block;
 }
 
-#toc-wrapper a:hover,
-#toc-wrapper a.is-active {
+#toc-wrapper a:hover {
   color: var(--text-color);
-  border-left-color: var(--ink);
+  border-left-color: var(--ink-accent);
+}
+
+#toc-wrapper a.is-active {
+  color: var(--ink-accent);
+  border-left-color: var(--ink-accent);
+  transform: translateX(2px);
 }
 
 /* ===== 响应式调整 ===== */
@@ -186,16 +198,44 @@ code, kbd, pre,
   h1 {
     font-size: 1.875rem;
   }
-  
+
   h2 {
     font-size: 1.5rem;
   }
-  
+
   .post-preview .post-title {
     font-size: 1.25rem;
   }
-  
+
   p, li {
     font-size: 1rem;
+  }
+}
+
+/* 平板/小桌面：放宽阅读宽度，标题层级再稳一档 */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.875rem;
+  }
+
+  .post-content,
+  .page-content {
+    font-size: 1.0625rem;
+  }
+}
+
+/* 大屏幕：加大首段 lead 与列表标题，杂志感更强 */
+@media (min-width: 1280px) {
+  .post-content > p:first-of-type,
+  .page-content > p:first-of-type {
+    font-size: 1.25rem;
+  }
+
+  .post-preview .post-title {
+    font-size: 1.625rem;
   }
 }
