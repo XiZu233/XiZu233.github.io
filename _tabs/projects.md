@@ -1,5 +1,6 @@
 ---
-title: 项目
+# 标题通过 _data/locales/zh-CN.yml 的 tabs.projects 翻译为"项目"
+title: projects
 icon: fas fa-code
 order: 3
 layout: projects

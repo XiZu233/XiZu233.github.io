@@ -54,12 +54,13 @@
 
   <div class="footer-col footer-categories">
     <h3 class="footer-heading meta-en">Categories</h3>
-    {% assign top_cats = site.categories | slice: 0, 5 %}
+    {% assign top_cats = site.categories | sort %}
     {% if top_cats.size > 0 %}
       <ul class="footer-list">
-        {% for cat in top_cats %}
+        {% for cat in top_cats limit: 5 %}
+          {% assign cat_slug = cat[0] | slugify | url_encode %}
           <li>
-            <a href="{{ '/categories/' | append: cat[0] | slugify | url_encode | append: '/' | relative_url }}">
+            <a href="{{ '/categories/' | append: cat_slug | append: '/' | relative_url }}">
               {{- cat[0] -}}
               <span class="footer-count">{{ cat[1].size }}</span>
             </a>

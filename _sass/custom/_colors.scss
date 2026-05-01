@@ -3,8 +3,8 @@
    纯墨黑 + 暖米白 + 墨蓝/米黄强调色
    ======================================== */
 
+/* ===== 抽象颜色（与模式无关，供下面引用） ===== */
 :root {
-  /* ===== 墨水经典主题色 ===== */
   --ink: #0a0a0b;
   --ink-rgb: 10, 10, 11;
   --paper: #f1efea;
@@ -13,13 +13,19 @@
   --ink-tint: #18181a;
   --ink-muted: rgba(10, 10, 11, 0.55);
   --ink-faint: rgba(10, 10, 11, 0.4);
+  --ink-accent-light: #1f3a5f;
+  --ink-accent-dark: #d4b86a;
+}
 
-  /* 强调色：墨蓝（光线）/ 米黄（暗色） */
-  --ink-accent: #1f3a5f;
+/* ===== Light Mode：与 chirpy _base.scss 选择器同优先级 ===== */
+html:not([data-mode]),
+html[data-mode='light'] {
+  /* 强调色 */
+  --ink-accent: var(--ink-accent-light);
   --ink-accent-rgb: 31, 58, 95;
   --ink-accent-soft: rgba(31, 58, 95, 0.35);
 
-  /* ===== 覆盖 Chirpy 变量 ===== */
+  /* Chirpy 变量覆盖 */
   --main-bg: var(--paper);
   --main-bg-rgb: var(--paper-rgb);
   --card-bg: #fbfaf6;
@@ -27,7 +33,7 @@
   --sidebar-bg: var(--paper-tint);
   --sidebar-bg-rgb: 232, 229, 222;
 
-  /* 文字颜色 */
+  /* 文字 */
   --text-color: var(--ink);
   --text-color-rgb: var(--ink-rgb);
   --heading-color: var(--ink);
@@ -45,7 +51,7 @@
   --btn-bg: transparent;
   --btn-hover-bg: var(--paper-tint);
 
-  /* 引用块 */
+  /* 引用 */
   --blockquote-border-color: var(--ink-accent);
   --blockquote-text-color: var(--ink-muted);
 
@@ -78,13 +84,28 @@
   --topbar-border-color: var(--main-border-color);
   --topbar-text-color: var(--ink);
 
-  /* 阴影：杂志风不用阴影，用边框 */
+  /* 阴影：杂志风用边框，不用阴影 */
   --card-shadow: none;
   --sidebar-shadow: none;
 }
 
+/* prefers-color-scheme: dark 但用户未显式选择时也按 light 兜底（chirpy 在 prefers-dark 下默认进 dark） */
+@media (prefers-color-scheme: dark) {
+  html[data-mode='light'] {
+    --main-bg: var(--paper);
+    --card-bg: #fbfaf6;
+    --sidebar-bg: var(--paper-tint);
+    --text-color: var(--ink);
+    --heading-color: var(--ink);
+  }
+}
+
 /* ===== Dark Mode ===== */
 html[data-mode='dark'] {
+  --ink-accent: var(--ink-accent-dark);
+  --ink-accent-rgb: 212, 184, 106;
+  --ink-accent-soft: rgba(212, 184, 106, 0.4);
+
   --main-bg: #16161a;
   --main-bg-rgb: 22, 22, 26;
   --card-bg: #1f1f24;
@@ -96,11 +117,6 @@ html[data-mode='dark'] {
   --text-color-rgb: var(--paper-rgb);
   --heading-color: var(--paper);
   --text-muted-color: rgba(241, 239, 234, 0.6);
-
-  /* 暗色用米黄强调色 */
-  --ink-accent: #d4b86a;
-  --ink-accent-rgb: 212, 184, 106;
-  --ink-accent-soft: rgba(212, 184, 106, 0.4);
 
   --link-color: var(--paper-tint);
   --link-hover-color: var(--ink-accent);
@@ -120,13 +136,31 @@ html[data-mode='dark'] {
   --tb-odd-bg: rgba(241, 239, 234, 0.03);
   --tb-border-color: var(--main-border-color);
 
-  /* 顶栏 */
   --topbar-bg: #16161a;
   --topbar-border-color: rgba(241, 239, 234, 0.1);
   --topbar-text-color: var(--paper);
+
+  --card-shadow: none;
+  --sidebar-shadow: none;
 }
 
-/*
- * 暗色模式由 Chirpy 主题通过 html[data-mode="dark"] 控制
- * 不额外添加 @media 查询，避免与主题 JS 切换逻辑冲突
- */
+/* prefers-color-scheme: dark 默认（用户未选）也按 dark */
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode]) {
+    --ink-accent: var(--ink-accent-dark);
+    --ink-accent-rgb: 212, 184, 106;
+    --ink-accent-soft: rgba(212, 184, 106, 0.4);
+
+    --main-bg: #16161a;
+    --card-bg: #1f1f24;
+    --sidebar-bg: #131318;
+    --text-color: var(--paper);
+    --heading-color: var(--paper);
+    --text-muted-color: rgba(241, 239, 234, 0.6);
+    --link-color: var(--paper-tint);
+    --link-hover-color: var(--ink-accent);
+    --main-border-color: rgba(241, 239, 234, 0.1);
+    --topbar-bg: #16161a;
+    --topbar-text-color: var(--paper);
+  }
+}

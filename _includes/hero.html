@@ -1,6 +1,6 @@
 <!--
   Magazine Hero — 仅在首页第一页 (paginator.page == 1) 渲染
-  通过 _layouts/home.html 调用：{% include hero.html lang=lang %}
+  通过 _layouts/home.html 在 #post-list 之前 include 调用
 -->
 
 {%- capture issue_num -%}{{ site.posts | size }}{%- endcapture -%}
@@ -18,12 +18,13 @@
     <p class="hero-desc">{{ site.description | strip_newlines }}</p>
   {% endif %}
 
-  {% assign top_cats = site.categories | slice: 0, 4 %}
+  {% assign top_cats = site.categories | sort %}
   {% if top_cats.size > 0 %}
     <div class="hero-keywords reveal-group" aria-label="主要分类">
-      {% for cat in top_cats %}
+      {% for cat in top_cats limit: 4 %}
+        {% assign cat_slug = cat[0] | slugify | url_encode %}
         <a
-          href="{{ '/categories/' | append: cat[0] | slugify | url_encode | append: '/' | relative_url }}"
+          href="{{ '/categories/' | append: cat_slug | append: '/' | relative_url }}"
           class="hero-keyword reveal"
         >
           {{- cat[0] -}}
