@@ -1,6 +1,7 @@
 ---
 # the default layout is 'page'
-title: 关于我
+# 标题通过 _data/locales/zh-CN.yml 的 tabs.about 翻译为"关于"
+title: about
 icon: fas fa-info-circle
 order: 4
 ---
