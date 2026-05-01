@@ -1,0 +1,129 @@
+/* ========================================
+   Animations - 中度动效层
+   滚动揭示 / 链接下划线展开 / 卡片悬停
+   - 所有动效在 prefers-reduced-motion 下自动禁用
+   ======================================== */
+
+/* ===== 滚动揭示工具类 ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 同组元素错落浮现 */
+.reveal-group > .reveal:nth-child(2).is-visible { transition-delay: 60ms; }
+.reveal-group > .reveal:nth-child(3).is-visible { transition-delay: 120ms; }
+.reveal-group > .reveal:nth-child(4).is-visible { transition-delay: 180ms; }
+.reveal-group > .reveal:nth-child(5).is-visible { transition-delay: 240ms; }
+.reveal-group > .reveal:nth-child(6).is-visible { transition-delay: 300ms; }
+
+/* ===== 正文链接：下划线居中展开 ===== */
+.post-content a:not(.btn):not(.popup):not([class*='no-underline']):not(.anchor),
+.page-content a:not(.btn):not(.popup):not([class*='no-underline']):not(.anchor) {
+  text-decoration: none;
+  background-image: linear-gradient(var(--ink-accent), var(--ink-accent));
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  transition: background-size 0.3s ease, color 0.2s ease;
+  padding-bottom: 2px;
+  color: var(--link-color);
+}
+
+.post-content a:not(.btn):not(.popup):not([class*='no-underline']):not(.anchor):hover,
+.page-content a:not(.btn):not(.popup):not([class*='no-underline']):not(.anchor):hover {
+  color: var(--ink-accent);
+  background-size: 100% 1px;
+}
+
+/* ===== 文章卡片悬停：左侧滑出竖线 ===== */
+.post-preview {
+  position: relative;
+  padding-left: 0;
+  transition: padding-left 0.3s ease, background-color 0.3s ease;
+}
+
+.post-preview::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2rem;
+  bottom: 2rem;
+  width: 0;
+  background: var(--ink-accent);
+  transition: width 0.3s ease;
+}
+
+.post-preview:hover {
+  padding-left: 1rem;
+}
+
+.post-preview:hover::before {
+  width: 3px;
+}
+
+/* ===== TOC：兼容 tocbot 的 is-active-link ===== */
+#toc-wrapper a.is-active-link {
+  color: var(--ink-accent);
+  border-left-color: var(--ink-accent);
+  transform: translateX(2px);
+}
+
+/* ===== 顶栏滚动反馈 ===== */
+#topbar-wrapper {
+  transition: border-bottom-color 0.3s ease, background-color 0.3s ease;
+}
+
+body.scrolled #topbar-wrapper {
+  border-bottom-color: var(--ink-faint);
+}
+
+/* ===== 标签/按钮：等距收缩反馈 ===== */
+.post-tag,
+.tag-label,
+.btn {
+  transition: background-color 0.2s ease, color 0.2s ease,
+              border-color 0.2s ease, transform 0.15s ease;
+}
+
+.post-tag:active,
+.tag-label:active,
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* ===== 减少动效偏好：完全静态 ===== */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .post-preview,
+  .post-preview::before,
+  .post-content a,
+  .page-content a,
+  #toc-wrapper a,
+  #topbar-wrapper,
+  .post-tag,
+  .tag-label,
+  .btn {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .post-preview:hover {
+    padding-left: 0;
+  }
+
+  .post-preview:hover::before {
+    width: 0;
+  }
+}
