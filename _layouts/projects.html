@@ -1,0 +1,57 @@
+---
+layout: page
+# Magazine Editorial — 作品集网格
+# 数据源：_data/projects.yml
+# 样式：_sass/custom/_projects-grid.scss
+---
+
+{% if content and content != '' %}
+  <section class="projects-intro reveal">
+    {{ content }}
+  </section>
+{% endif %}
+
+<div class="projects-grid reveal-group" aria-label="作品集">
+  {% for project in site.data.projects %}
+    <article
+      class="project-card reveal{% if project.status %} project-card-{{ project.status }}{% endif %}"
+    >
+      <header class="project-card-head">
+        <h2 class="project-name">{{ project.name }}</h2>
+        {% if project.year %}
+          <span class="project-year meta-en">{{ project.year }}</span>
+        {% endif %}
+      </header>
+
+      <p class="project-desc">{{ project.desc }}</p>
+
+      {% if project.stack and project.stack.size > 0 %}
+        <div class="project-stack" aria-label="技术栈">
+          {% for tech in project.stack %}
+            <span class="project-stack-item">{{ tech }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if project.links and project.links.size > 0 %}
+        <div class="project-links">
+          {% for link in project.links %}
+            <a
+              href="{{ link.url }}"
+              class="project-link"
+              {% unless link.url contains '#' %}target="_blank" rel="noopener"{% endunless %}
+            >
+              {% case link.type %}
+                {% when 'github' %}<i class="fab fa-github fa-fw" aria-hidden="true"></i>
+                {% when 'demo' %}<i class="fas fa-external-link-alt fa-fw" aria-hidden="true"></i>
+                {% when 'docs' %}<i class="fas fa-book fa-fw" aria-hidden="true"></i>
+                {% else %}<i class="fas fa-arrow-right fa-fw" aria-hidden="true"></i>
+              {% endcase %}
+              <span>{{ link.label }}</span>
+            </a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </article>
+  {% endfor %}
+</div>

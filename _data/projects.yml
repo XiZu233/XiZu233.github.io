@@ -1,0 +1,40 @@
+# 作品集数据
+# 由 _layouts/projects.html 渲染为响应式网格
+# 字段说明：
+#   name        必填 - 项目名
+#   desc        必填 - 一句话简介
+#   stack       可选 - 技术栈数组
+#   links       可选 - 外链数组（label / url / type: github|external|demo|docs）
+#   status      可选 - planned 时显示为占位卡片
+
+- name: 个人博客系统
+  desc: 基于 Jekyll + Chirpy 主题的静态博客，集成 GitHub Actions 自动部署，墨水经典杂志风设计。
+  stack:
+    - Jekyll
+    - GitHub Actions
+    - Markdown
+    - SCSS
+  links:
+    - label: 在线访问
+      url: https://xizu233.github.io
+      type: external
+    - label: 源码
+      url: https://github.com/XiZu233/XiZu233.github.io
+      type: github
+
+- name: 实用工具脚本集
+  desc: 日常工作学习中积累的自动化脚本，包括文件批量处理、数据爬虫、环境配置等。
+  stack:
+    - Python
+    - Bash
+    - PowerShell
+  links:
+    - label: 源码
+      url: https://github.com/XiZu233/tools
+      type: github
+
+- name: 更多正在路上
+  desc: 这里将持续记录新的实验性项目与开源贡献，敬请期待。
+  stack:
+    - 待定
+  status: planned
