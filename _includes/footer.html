@@ -1,0 +1,105 @@
+<!--
+  Override of jekyll-theme-chirpy@7.5 _includes/footer.html
+  改为三栏杂志风：① About / 版权与平台 ② 近期分类 ③ 联系方式
+-->
+
+<footer
+  aria-label="Site Info"
+  class="magazine-footer"
+>
+  <div class="footer-col footer-about">
+    <h3 class="footer-heading meta-en">About</h3>
+    {% if site.description %}
+      <p class="footer-desc">{{ site.description }}</p>
+    {% endif %}
+    <p class="footer-copy">
+      {{- '©' }}
+      <time>{{ 'now' | date: '%Y' }}</time>
+
+      {% if site.social.links %}
+        <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>.
+      {% else %}
+        <em class="fst-normal">{{ site.social.name }}</em>.
+      {% endif %}
+
+      {% if site.data.locales[include.lang].copyright.brief %}
+        <span
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="{{ site.data.locales[include.lang].copyright.verbose }}"
+        >
+          {{- site.data.locales[include.lang].copyright.brief -}}
+        </span>
+      {% endif %}
+    </p>
+    <p class="footer-meta">
+      {%- capture _platform -%}
+        <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
+      {%- endcapture -%}
+
+      {%- capture _theme -%}
+        <a
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="v{{ theme.version }}"
+          href="https://github.com/cotes2020/jekyll-theme-chirpy"
+          target="_blank"
+          rel="noopener"
+        >Chirpy</a>
+      {%- endcapture -%}
+
+      {{ site.data.locales[include.lang].meta | replace: ':PLATFORM', _platform | replace: ':THEME', _theme }}
+    </p>
+  </div>
+
+  <div class="footer-col footer-categories">
+    <h3 class="footer-heading meta-en">Categories</h3>
+    {% assign top_cats = site.categories | slice: 0, 5 %}
+    {% if top_cats.size > 0 %}
+      <ul class="footer-list">
+        {% for cat in top_cats %}
+          <li>
+            <a href="{{ '/categories/' | append: cat[0] | slugify | url_encode | append: '/' | relative_url }}">
+              {{- cat[0] -}}
+              <span class="footer-count">{{ cat[1].size }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="footer-empty">—</p>
+    {% endif %}
+  </div>
+
+  <div class="footer-col footer-contact">
+    <h3 class="footer-heading meta-en">Contact</h3>
+    <ul class="footer-list">
+      {% for entry in site.data.contact limit:5 %}
+        {%- assign url = null -%}
+        {% case entry.type %}
+          {% when 'github', 'twitter' %}
+            {% if site[entry.type].username %}
+              {%- capture url -%}https://{{ entry.type }}.com/{{ site[entry.type].username }}{%- endcapture -%}
+            {% endif %}
+          {% when 'email' %}
+            {% if site.social.email %}
+              {%- assign email = site.social.email | split: '@' -%}
+              {%- capture url -%}javascript:location.href = 'mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@'){%- endcapture -%}
+            {% endif %}
+          {% when 'rss' %}
+            {% assign url = '/feed.xml' | relative_url %}
+          {% else %}
+            {% assign url = entry.url %}
+        {% endcase %}
+        {% if url %}
+          <li>
+            <a href="{{ url }}" {% unless entry.noblank %}target="_blank" rel="noopener noreferrer"{% endunless %}>
+              <i class="{{ entry.icon }} fa-fw"></i>
+              <span>{{ entry.type | capitalize }}</span>
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</footer>

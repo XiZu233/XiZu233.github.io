@@ -1,0 +1,50 @@
+<!--
+  Scroll Reveal — 通过 layout.script_includes 注入到 home / post 页
+  - 滚动时给 [data-toc] / .reveal 元素加 .is-visible
+  - 顶栏滚动反馈：body.scrolled 控制边框深度
+  - 不支持 IntersectionObserver 时直接显示所有元素，避免空白
+-->
+
+<script>
+  (function () {
+    'use strict';
+
+    var reveals = document.querySelectorAll('.reveal');
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!('IntersectionObserver' in window) || prefersReducedMotion) {
+      reveals.forEach(function (el) { el.classList.add('is-visible'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+
+      reveals.forEach(function (el) { io.observe(el); });
+    }
+
+    var topbar = document.getElementById('topbar-wrapper');
+    if (topbar) {
+      var ticking = false;
+      var updateTopbar = function () {
+        if (window.scrollY > 8) {
+          document.body.classList.add('scrolled');
+        } else {
+          document.body.classList.remove('scrolled');
+        }
+        ticking = false;
+      };
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(updateTopbar);
+          ticking = true;
+        }
+      }, { passive: true });
+      updateTopbar();
+    }
+  })();
+</script>

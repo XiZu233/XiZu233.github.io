@@ -1,0 +1,45 @@
+<!--
+  Magazine Hero — 仅在首页第一页 (paginator.page == 1) 渲染
+  通过 _layouts/home.html 调用：{% include hero.html lang=lang %}
+-->
+
+{%- capture issue_num -%}{{ site.posts | size }}{%- endcapture -%}
+{%- assign issue_num = issue_num | prepend: '00' | slice: -3, 3 -%}
+
+<section class="magazine-hero" aria-label="Site Introduction">
+  <div class="hero-issue meta-en">
+    Issue No.{{ issue_num }} &nbsp;·&nbsp; {{ site.time | date: '%Y / %m' }}
+  </div>
+
+  <h1 class="hero-title">{{ site.title }}</h1>
+  <p class="hero-tagline">{{ site.tagline }}</p>
+
+  {% if site.description %}
+    <p class="hero-desc">{{ site.description | strip_newlines }}</p>
+  {% endif %}
+
+  {% assign top_cats = site.categories | slice: 0, 4 %}
+  {% if top_cats.size > 0 %}
+    <div class="hero-keywords reveal-group" aria-label="主要分类">
+      {% for cat in top_cats %}
+        <a
+          href="{{ '/categories/' | append: cat[0] | slugify | url_encode | append: '/' | relative_url }}"
+          class="hero-keyword reveal"
+        >
+          {{- cat[0] -}}
+        </a>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% assign latest = site.posts | first %}
+  {% if latest %}
+    <a href="{{ latest.url | relative_url }}" class="hero-latest reveal">
+      <span class="hero-latest-label meta-en">Latest</span>
+      <span class="hero-latest-title">{{ latest.title }}</span>
+      <span class="hero-latest-date meta-en">{{ latest.date | date: '%Y / %m / %d' }}</span>
+    </a>
+  {% endif %}
+
+  <div class="hero-rule" aria-hidden="true"></div>
+</section>

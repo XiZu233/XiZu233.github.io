@@ -358,3 +358,248 @@ div[class^='language-'] {
 html[data-mode='dark'] ::selection {
   background: rgba(241, 239, 234, 0.15);
 }
+
+/* ========================================
+   ↓ 杂志风新增：侧栏期刊号 / 顶栏副标题 / 三栏页脚 / 文章卡片悬停
+   ======================================== */
+
+/* ===== 侧栏期刊号块 ===== */
+.sidebar-issue {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.5rem;
+  margin: 0 1.5rem 1rem;
+  border-top: 1px solid var(--main-border-color);
+  border-bottom: 1px solid var(--main-border-color);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted-color);
+
+  .issue-label {
+    font-size: 0.625rem;
+    opacity: 0.75;
+  }
+
+  .issue-number {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    letter-spacing: 0.04em;
+  }
+
+  .issue-date {
+    font-size: 0.6875rem;
+  }
+}
+
+/* ===== 顶栏副标题（仅 home 显示） ===== */
+.topbar-tagline {
+  display: inline-block;
+  margin-left: 0.625rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--main-border-color);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted-color);
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  .topbar-tagline {
+    display: none;
+  }
+}
+
+/* ===== 三栏页脚 ===== */
+.magazine-footer {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2.5rem;
+  padding: 3rem 0 2.5rem;
+  border-top: 1px solid var(--main-border-color);
+  font-family: var(--font-sans-zh);
+  font-size: 0.875rem;
+  color: var(--text-muted-color);
+
+  a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--ink-accent);
+    }
+  }
+}
+
+.footer-heading {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-muted-color);
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--main-border-color);
+}
+
+.footer-col p {
+  margin: 0 0 0.75rem;
+  line-height: 1.65;
+}
+
+.footer-desc {
+  font-size: 0.875rem;
+  color: var(--text-color);
+  max-width: 32em;
+}
+
+.footer-copy,
+.footer-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted-color);
+
+  em {
+    font-style: normal;
+    color: var(--text-color);
+  }
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .fa-fw {
+    width: 1.25em;
+    margin-right: 0.5rem;
+    color: var(--text-muted-color);
+  }
+}
+
+.footer-count {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--text-muted-color);
+  margin-left: 0.375rem;
+  letter-spacing: 0.04em;
+}
+
+.footer-empty {
+  font-size: 0.875rem;
+  color: var(--text-muted-color);
+}
+
+@media (max-width: 1024px) {
+  .magazine-footer {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .footer-about {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .magazine-footer {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding: 2rem 0 1.5rem;
+  }
+}
+
+/* ===== 文章卡片悬停：左竖线 + 标题位移 ===== */
+#post-list .card-wrapper {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 1.25rem;
+
+  .card {
+    position: relative;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: var(--ink-accent);
+      transition: width 0.25s ease;
+      pointer-events: none;
+    }
+  }
+
+  &:hover .card {
+    border-color: var(--ink-accent);
+    transform: translateX(2px);
+
+    &::before {
+      width: 3px;
+    }
+
+    .card-title {
+      color: var(--ink-accent);
+    }
+  }
+
+  .card-title {
+    transition: color 0.25s ease;
+  }
+}
+
+/* ===== chirpy 自带：相关文章 / 文章导航 杂志风美化 ===== */
+#related-posts,
+.post-navigation {
+  border-top: 1px solid var(--main-border-color);
+  padding-top: 2rem;
+  margin-top: 3rem;
+
+  .card,
+  .post-nav-item {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: 1px solid var(--main-border-color);
+    transition: border-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      border-color: var(--ink-accent);
+    }
+  }
+}
+
+#related-posts > h3,
+.post-navigation > h3 {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-muted-color);
+  margin-bottom: 1.25rem;
+}
+
+.post-navigation .post-title {
+  font-family: var(--font-serif-zh);
+  font-weight: 600;
+}
+
+/* prefers-reduced-motion: 关闭悬停位移 */
+@media (prefers-reduced-motion: reduce) {
+  #post-list .card-wrapper:hover .card {
+    transform: none;
+  }
+}
