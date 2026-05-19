@@ -188,5 +188,5 @@ description: 验证 Jekyll 主题改造的基础验收项
 ## 参考
 
 - [Claude Code 官方文档 — 最佳实践](https://code.claude.com/docs/zh-CN/best-practices)
-- [博客"墨水经典"精修与全站重做纪实](/posts/博客墨水经典精修与全站重做纪实/)
-- [用 Claude Code 最佳实践重塑工作流](/posts/用-Claude-Code-最佳实践重塑工作流代理循环与四阶段方法论/)
+- [博客"墨水经典"精修与全站重做纪实](https://github.com/XiZu233/XiZu233.github.io/tree/main/_posts)
+- [用 Claude Code 最佳实践重塑工作流](/posts/claude-code-workflow-reshaping/)
