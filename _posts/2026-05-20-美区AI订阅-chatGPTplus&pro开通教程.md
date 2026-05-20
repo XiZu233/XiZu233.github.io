@@ -4,9 +4,6 @@ date: 2026-05-20 10:00:00 +0800
 categories: [教程, AI工具]
 tags: [ChatGPT, OpenAI, 美区订阅, Google Play, Apple ID]
 description: "面向希望稳定订阅 ChatGPT Plus/Pro 并长期使用 Codex 功能的用户，详解 Google Play 美区绑定信用卡与 Apple 礼品卡两种订阅方案，以及常见问题与故障排除。"
-image:
-  path: /assets/img/posts/
-  alt:
 ---
 
 > 本文面向希望**稳定订阅 ChatGPT Plus/Pro** 并长期使用 Codex 功能的用户群体，包括软件开发者、AI 开发方向的学生，以及希望借助 AI 工具提升效率的跨界从业者。
@@ -35,7 +32,7 @@ image:
 
 - 建议全程需保持**美国 IP 的代理连接**，且网络需稳定。订阅过程中的 IP 漂移可能导致 Google 风控拦截或付款验证失败
 
->![Pasted image 20260520003958.png](https://cdn.jsdelivr.net/gh/XiZu233/images@main/blog/Pasted%20image%2020260520003958.png)
+> ![Pasted image 20260520003958.png](https://cdn.jsdelivr.net/gh/XiZu233/images@main/blog/Pasted%20image%2020260520003958.png)
 > Tips：检查商店版本是否为最新版本
 
 ## 二、Google Play 美区订阅
