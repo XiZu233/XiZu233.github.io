@@ -8,11 +8,11 @@ order: 4
 
 ## 个人简介
 
-你好，我是 **文晨（Wenchen）**，毕业于重庆邮电大学，现在是一名计算机教育行业从业者。
+你好，我是 Wenchen，毕业于重庆邮电大学，现在是一名计算机教育行业从业者。
 
 - 这里会分享技术整理、好玩的内容、杂谈和个人项目集
 - 博客同时作为个人简历、作品展示和长期更新的个人空间
-- 欢迎通过邮箱、GitHub、B站和 X 与我交流
+- 欢迎通过下面的联系方式与我交流
 
 ## 关注方向
 
@@ -27,5 +27,7 @@ order: 4
 - 🐙 GitHub: [https://github.com/XiZu233](https://github.com/XiZu233)
 - 📺 Bilibili: [https://space.bilibili.com/2071163183](https://space.bilibili.com/2071163183)
 - ✖ X: [https://x.com/xizu233](https://x.com/xizu233)
+- 小红书：xizu233
+- 知乎：@喜烛
 
 > 本站由 [Jekyll](https://jekyllrb.com/) + [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) 主题驱动，托管于 [GitHub Pages](https://pages.github.com/)。
