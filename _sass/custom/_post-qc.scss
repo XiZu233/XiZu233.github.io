@@ -1,0 +1,52 @@
+/* ========================================
+   Post reading refinements
+   ======================================== */
+
+.post-desc {
+  color: var(--text-muted-color);
+}
+
+article[data-toc='true'] > header,
+article[data-toc='false'] > header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed var(--main-border-color);
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.post-tail-wrapper {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--main-border-color);
+}
+
+.post-tag,
+.post-category-chip {
+  border-radius: var(--qc-radius-sm) !important;
+  background: var(--tag-bg);
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+#toc-wrapper {
+  padding: 1rem;
+  border: 1px solid var(--main-border-color);
+  border-radius: var(--qc-radius-lg);
+  background: var(--card-bg);
+}
+
+div[class^='language-'],
+.highlight,
+.code-header {
+  border-radius: var(--qc-radius-md);
+}
+
+div[class^='language-'] {
+  overflow: hidden;
+  background: var(--code-bg);
+}

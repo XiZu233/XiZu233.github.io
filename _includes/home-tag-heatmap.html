@@ -1,0 +1,36 @@
+{%- assign tag_items = site.tags | sort -%}
+
+{% if tag_items.size > 0 %}
+  <section class="home-tag-heatmap reveal-group" aria-label="阅读倾向">
+    <div class="hero-issue meta-en">Signal Map</div>
+    <h2 class="hero-tagline">标签倾向热度地图</h2>
+
+    <div class="hero-keywords">
+      {% for tag in tag_items %}
+        {% assign tag_name = tag[0] %}
+        {% assign tag_count = tag[1].size %}
+        {% assign tag_slug = tag_name | slugify | url_encode %}
+        {% assign tag_level = 0 %}
+
+        {% if tag_count >= 8 %}
+          {% assign tag_level = 4 %}
+        {% elsif tag_count >= 5 %}
+          {% assign tag_level = 3 %}
+        {% elsif tag_count >= 3 %}
+          {% assign tag_level = 2 %}
+        {% elsif tag_count >= 2 %}
+          {% assign tag_level = 1 %}
+        {% endif %}
+
+        <a
+          class="hero-keyword reveal"
+          href="{{ '/tags/' | append: tag_slug | append: '/' | relative_url }}"
+          data-level="{{ tag_level }}"
+        >
+          {{- tag_name -}}
+          <span class="meta-en">{{ tag_count }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

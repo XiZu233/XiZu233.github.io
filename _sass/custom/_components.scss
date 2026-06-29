@@ -1,6 +1,5 @@
 /* ========================================
-   Components - 杂志风组件覆盖
-   结构优于装饰：边框 + 留白 + 字体对比
+   Components - Qoder + ClimateTech overrides
    ======================================== */
 
 /* ===== 卡片：无阴影，细边框 ===== */
@@ -9,14 +8,15 @@
 .page-card {
   background: var(--card-bg);
   border: 1px solid var(--main-border-color);
-  border-radius: 0;
-  box-shadow: none !important;
+  border-radius: var(--qc-radius-lg);
+  box-shadow: var(--card-shadow) !important;
 }
 
 /* ===== 顶栏 ===== */
 #topbar-wrapper {
   background: var(--topbar-bg);
   border-bottom: 1px solid var(--topbar-border-color);
+  backdrop-filter: blur(10px);
 }
 
 #topbar {
@@ -34,7 +34,7 @@
 }
 
 #topbar-title {
-  font-family: var(--font-serif-zh);
+  font-family: var(--font-display);
   font-weight: 600;
   color: var(--topbar-text-color);
 }
@@ -50,10 +50,10 @@
 }
 
 #sidebar .site-title {
-  font-family: var(--font-serif-zh);
+  font-family: var(--font-display);
   font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  letter-spacing: 0;
   margin-top: 1rem;
 }
 
@@ -78,11 +78,11 @@
 .tag-label {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  background: transparent;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  background: var(--tag-bg);
   border: 1px solid var(--tag-border);
-  border-radius: 0;
+  border-radius: var(--qc-radius-sm);
   padding: 0.25rem 0.625rem;
   color: var(--text-muted-color);
   transition: all 0.2s ease;
@@ -101,9 +101,9 @@
 .btn-outline-secondary {
   font-family: var(--font-mono);
   font-size: 0.8125rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  border-radius: 0;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  border-radius: var(--qc-radius-sm);
   border-width: 1px;
   padding: 0.5rem 1.25rem;
   transition: all 0.2s ease;
@@ -116,7 +116,7 @@
 /* ===== 文章内图片 ===== */
 .post-content img,
 .page-content img {
-  border-radius: 0;
+  border-radius: var(--qc-radius-md);
   border: 1px solid var(--main-border-color);
 }
 
@@ -155,9 +155,9 @@ table {
 }
 
 th {
-  font-family: var(--font-serif-zh);
+  font-family: var(--font-display);
   font-weight: 600;
-  background: var(--paper-tint);
+  background: var(--code-header-bg);
   border-bottom: 2px solid var(--main-border-color);
   padding: 0.75rem 1rem;
 }
@@ -181,7 +181,7 @@ hr {
 /* ===== 搜索框 ===== */
 #search-input {
   font-family: var(--font-sans-zh);
-  border-radius: 0;
+  border-radius: var(--qc-radius-sm);
   border: 1px solid var(--main-border-color);
   background: var(--card-bg);
 }
@@ -192,7 +192,7 @@ hr {
 }
 
 .search-result-title {
-  font-family: var(--font-serif-zh);
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.125rem;
 }
@@ -248,7 +248,7 @@ hr {
 
 /* ===== 代码块 ===== */
 div[class^='language-'] {
-  border-radius: 0;
+  border-radius: var(--qc-radius-md);
   border: 1px solid var(--main-border-color);
 }
 
@@ -297,7 +297,7 @@ div[class^='language-'] {
 
 /* ===== 回到顶部 ===== */
 #back-to-top {
-  border-radius: 0;
+  border-radius: var(--qc-radius-sm);
   border: 1px solid var(--main-border-color);
   background: var(--card-bg);
 }
@@ -320,15 +320,15 @@ div[class^='language-'] {
   color: var(--text-muted-color);
 }
 
-/* ===== 友情链接 ===== */
+/* ===== 友情链接（隐藏导航后仅保留兼容） ===== */
 #friend-links .card-title {
-  font-family: var(--font-serif-zh);
+  font-family: var(--font-display);
   font-weight: 600;
 }
 
 /* ===== 灯箱 ===== */
 #image-wrapper img {
-  border-radius: 0;
+  border-radius: var(--qc-radius-md);
 }
 
 /* ===== 滚动条 ===== */
@@ -342,7 +342,7 @@ div[class^='language-'] {
 
 ::-webkit-scrollbar-thumb {
   background: var(--main-border-color);
-  border-radius: 0;
+  border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -360,7 +360,7 @@ html[data-mode='dark'] ::selection {
 }
 
 /* ========================================
-   ↓ 杂志风新增：侧栏期刊号 / 顶栏副标题 / 三栏页脚 / 文章卡片悬停
+   ↓ workbench additions: sidebar status / topbar subtitle / footer / post cards
    ======================================== */
 
 /* ===== 侧栏期刊号块 ===== */
@@ -372,6 +372,7 @@ html[data-mode='dark'] ::selection {
   margin: 0 1.5rem 1rem;
   border-top: 1px solid var(--main-border-color);
   border-bottom: 1px solid var(--main-border-color);
+  border-radius: var(--qc-radius-md);
   font-family: var(--font-mono);
   font-size: 0.6875rem;
   text-transform: uppercase;
@@ -546,7 +547,7 @@ html[data-mode='dark'] ::selection {
 
   &:hover .card {
     border-color: var(--ink-accent);
-    transform: translateX(2px);
+    transform: translateY(-1px);
 
     &::before {
       width: 3px;
@@ -562,7 +563,7 @@ html[data-mode='dark'] ::selection {
   }
 }
 
-/* ===== chirpy 自带：相关文章 / 文章导航 杂志风美化 ===== */
+/* ===== chirpy 自带：相关文章 / 文章导航工作台化 ===== */
 #related-posts,
 .post-navigation {
   border-top: 1px solid var(--main-border-color);
@@ -571,7 +572,7 @@ html[data-mode='dark'] ::selection {
 
   .card,
   .post-nav-item {
-    border-radius: 0 !important;
+    border-radius: var(--qc-radius-lg) !important;
     box-shadow: none !important;
     border: 1px solid var(--main-border-color);
     transition: border-color 0.2s ease, color 0.2s ease;
@@ -593,7 +594,7 @@ html[data-mode='dark'] ::selection {
 }
 
 .post-navigation .post-title {
-  font-family: var(--font-serif-zh);
+  font-family: var(--font-display);
   font-weight: 600;
 }
 

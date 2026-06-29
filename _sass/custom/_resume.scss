@@ -1,0 +1,73 @@
+/* ========================================
+   About resume page
+   ======================================== */
+
+.resume-hero,
+.resume-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--main-border-color);
+  border-radius: var(--qc-radius-lg);
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+}
+
+.resume-hero {
+  background: var(--card-bg);
+  border-top-color: var(--ink-accent);
+}
+
+.resume-eyebrow {
+  margin-bottom: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-accent);
+}
+
+.resume-hero h1 {
+  margin-top: 0;
+}
+
+.resume-timeline {
+  display: grid;
+  gap: 1rem;
+}
+
+.resume-timeline article {
+  padding-left: 1rem;
+  border-left: 2px solid var(--ink-accent);
+}
+
+.resume-timeline h3 {
+  margin-top: 0;
+}
+
+.resume-skill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.resume-skill-grid span,
+.resume-contact li {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--tag-border);
+  border-radius: var(--qc-radius-sm);
+  background: var(--tag-bg);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+.resume-contact ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 1rem 0 0;
+  list-style: none;
+}

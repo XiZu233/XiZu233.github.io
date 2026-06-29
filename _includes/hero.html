@@ -3,40 +3,30 @@
   通过 _layouts/home.html 在 #post-list 之前 include 调用
 -->
 
-{%- capture issue_num -%}{{ site.posts | size }}{%- endcapture -%}
-{%- assign issue_num = issue_num | prepend: '00' | slice: -3, 3 -%}
+{% assign visible_posts = site.posts | where_exp: 'item', 'item.hidden != true' %}
+{% assign latest = visible_posts | first %}
 
 <section class="magazine-hero" aria-label="Site Introduction">
-  <div class="hero-issue meta-en">
-    Issue No.{{ issue_num }} &nbsp;·&nbsp; {{ site.time | date: '%Y / %m' }}
-  </div>
+  <div class="hero-issue meta-en">Qoder / ClimateTech Reading Cockpit</div>
 
   <h1 class="hero-title">{{ site.title }}</h1>
-  <p class="hero-tagline">{{ site.tagline }}</p>
+  <p class="hero-tagline">面向 Qoder、ClimateTech 与 AI 工作流的阅读驾驶舱。</p>
 
   {% if site.description %}
     <p class="hero-desc">{{ site.description | strip_newlines }}</p>
   {% endif %}
 
-  {% assign top_cats = site.categories | sort %}
-  {% if top_cats.size > 0 %}
-    <div class="hero-keywords reveal-group" aria-label="主要分类">
-      {% for cat in top_cats limit: 4 %}
-        {% assign cat_slug = cat[0] | slugify | url_encode %}
-        <a
-          href="{{ '/categories/' | append: cat_slug | append: '/' | relative_url }}"
-          class="hero-keyword reveal"
-        >
-          {{- cat[0] -}}
-        </a>
-      {% endfor %}
-    </div>
-  {% endif %}
+  <div class="hero-keywords reveal-group" aria-label="站点统计">
+    <span class="hero-keyword reveal">文章 {{ visible_posts | size }}</span>
+    <span class="hero-keyword reveal">标签 {{ site.tags | size }}</span>
+    {% if latest %}
+      <span class="hero-keyword reveal">最新 {{ latest.date | date: '%Y / %m / %d' }}</span>
+    {% endif %}
+  </div>
 
-  {% assign latest = site.posts | first %}
   {% if latest %}
     <a href="{{ latest.url | relative_url }}" class="hero-latest reveal">
-      <span class="hero-latest-label meta-en">Latest</span>
+      <span class="hero-latest-label meta-en">Start Reading</span>
       <span class="hero-latest-title">{{ latest.title }}</span>
       <span class="hero-latest-date meta-en">{{ latest.date | date: '%Y / %m / %d' }}</span>
     </a>

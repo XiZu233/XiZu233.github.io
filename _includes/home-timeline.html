@@ -1,0 +1,20 @@
+{%- assign recent_posts = site.posts | where_exp: 'item', 'item.hidden != true' -%}
+
+{% if recent_posts.size > 0 %}
+  <section class="home-timeline reveal-group" aria-label="近期发布">
+    <div class="hero-issue meta-en">Recent Log</div>
+    <h2 class="hero-tagline">近期发布时间线</h2>
+
+    {% for post in recent_posts limit: 6 %}
+      <article class="hero-latest reveal">
+        <time class="hero-latest-label meta-en" datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: '%Y / %m / %d' }}
+        </time>
+        <a href="{{ post.url | relative_url }}" class="hero-latest-title">{{ post.title }}</a>
+        <p class="hero-desc mb-0">
+          {{ post.description | default: post.summary | default: post.excerpt | strip_html | strip_newlines | truncate: 72 }}
+        </p>
+      </article>
+    {% endfor %}
+  </section>
+{% endif %}

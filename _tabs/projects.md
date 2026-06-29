@@ -4,6 +4,8 @@ title: projects
 icon: fas fa-code
 order: 3
 layout: projects
+hidden: true
+nav_hidden: true
 ---
 
 这里展示了一些我参与或独立开发的个人项目，涵盖工具脚本、Web 应用与开源贡献。

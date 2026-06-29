@@ -1,6 +1,6 @@
 <!--
   Override of jekyll-theme-chirpy@7.5 _includes/topbar.html
-  在 home 页 topbar-title 旁附加杂志风副标题；其余结构与上游保持一致。
+  在 home 页 topbar-title 旁附加工作台副标题；其余结构与上游保持一致。
 -->
 
 <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
@@ -50,7 +50,7 @@
     <div id="topbar-title">
       {% if page.layout == 'home' %}
         {{- site.data.locales[include.lang].title | default: site.title -}}
-        <span class="topbar-tagline meta-en" aria-hidden="true">a quiet journal</span>
+        <span class="topbar-tagline meta-en" aria-hidden="true">reading cockpit</span>
       {% elsif page.collection == 'tabs' or page.layout == 'page' %}
         {%- capture tab_key -%}{{ page.url | split: '/' }}{%- endcapture -%}
         {{- site.data.locales[include.lang].tabs[tab_key] | default: page.title -}}

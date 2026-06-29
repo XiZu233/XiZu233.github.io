@@ -58,6 +58,9 @@ refactor: true
 
 {% if paginator.page == 1 %}
   {% include hero.html lang=lang %}
+  {% include home-tag-heatmap.html %}
+  {% include home-timeline.html lang=lang %}
+  {% include home-profile-entry.html %}
 {% endif %}
 
 <div id="post-list" class="flex-grow-1 px-xl-1 reveal-group">

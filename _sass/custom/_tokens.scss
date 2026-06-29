@@ -1,0 +1,45 @@
+/* ========================================
+   Qoder + ClimateTech tokens
+   ======================================== */
+
+:root {
+  /* ClimateTech light primitives */
+  --qc-mist: #f6f8f4;
+  --qc-surface: #fbfdf9;
+  --qc-moss: #dde9d6;
+  --qc-forest: #174a3a;
+  --qc-ocean: #1f6f8b;
+  --qc-solar: #f2a900;
+  --qc-clay: #b46a55;
+  --qc-text: #1e2a24;
+  --qc-muted: #6b756e;
+  --qc-border: #cfd8ce;
+
+  /* Qoder dark primitives */
+  --qd-bg: #080807;
+  --qd-surface: #0f0d0c;
+  --qd-container: #171716;
+  --qd-elevated: #1a1917;
+  --qd-hover: #2a2926;
+  --qd-green: #00d47b;
+  --qd-green-soft: #2adb5c;
+  --qd-text: #ffffff;
+  --qd-muted: #b4b4ad;
+  --qd-tertiary: #7b7b75;
+  --qd-border: rgba(58, 57, 51, 0.72);
+
+  /* Shared shape and motion */
+  --qc-radius-xs: 4px;
+  --qc-radius-sm: 6px;
+  --qc-radius-md: 10px;
+  --qc-radius-lg: 14px;
+  --qc-space-card: 1.25rem;
+  --qc-focus-ring: 0 0 0 3px rgba(31, 111, 139, 0.2);
+
+  /* Heat scale, remapped per mode where needed */
+  --heat-0: #e8eee4;
+  --heat-1: #cbdcbe;
+  --heat-2: #91bd93;
+  --heat-3: #3f8f64;
+  --heat-4: #174a3a;
+}

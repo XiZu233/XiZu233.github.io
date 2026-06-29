@@ -2,6 +2,8 @@
 title: links
 icon: fas fa-link
 order: 5
+hidden: true
+nav_hidden: true
 ---
 
 以下是与我在网络上结识的朋友们的友情链接，欢迎访问他们的站点。

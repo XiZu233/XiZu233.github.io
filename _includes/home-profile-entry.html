@@ -1,0 +1,42 @@
+<section class="home-profile-entry reveal-group" aria-label="关于与联系方式">
+  <div class="hero-issue meta-en">Profile</div>
+  <h2 class="hero-tagline">关于这个写作空间</h2>
+
+  {% if site.description %}
+    <p class="hero-desc">{{ site.description | strip_newlines }}</p>
+  {% endif %}
+
+  <div class="hero-keywords">
+    <a class="hero-keyword reveal" href="{{ '/about/' | relative_url }}">About</a>
+
+    {% for entry in site.data.contact limit: 5 %}
+      {%- assign url = null -%}
+
+      {% case entry.type %}
+        {% when 'github', 'twitter' %}
+          {% if site[entry.type].username %}
+            {%- capture url -%}https://{{ entry.type }}.com/{{ site[entry.type].username }}{%- endcapture -%}
+          {% endif %}
+        {% when 'email' %}
+          {% if site.social.email %}
+            {%- assign email = site.social.email | split: '@' -%}
+            {%- capture url -%}javascript:location.href = 'mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@'){%- endcapture -%}
+          {% endif %}
+        {% when 'rss' %}
+          {% assign url = '/feed.xml' | relative_url %}
+        {% else %}
+          {% assign url = entry.url %}
+      {% endcase %}
+
+      {% if url %}
+        <a
+          class="hero-keyword reveal"
+          href="{{ url }}"
+          {% unless entry.noblank %}target="_blank" rel="noopener noreferrer"{% endunless %}
+        >
+          {{- entry.type | capitalize -}}
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>

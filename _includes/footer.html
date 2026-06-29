@@ -1,6 +1,6 @@
 <!--
   Override of jekyll-theme-chirpy@7.5 _includes/footer.html
-  改为三栏杂志风：① About / 版权与平台 ② 近期分类 ③ 联系方式
+  改为三栏工作台页脚：① About / 版权与平台 ② Timeline ③ 联系方式
 -->
 
 <footer
@@ -52,23 +52,28 @@
     </p>
   </div>
 
-  <div class="footer-col footer-categories">
-    <h3 class="footer-heading meta-en">Categories</h3>
-    {% assign top_cats = site.categories | sort %}
-    {% if top_cats.size > 0 %}
+  <div class="footer-col footer-timeline">
+    <h3 class="footer-heading meta-en">Timeline</h3>
+    {% if site.posts.size > 0 %}
       <ul class="footer-list">
-        {% for cat in top_cats limit: 5 %}
-          {% assign cat_slug = cat[0] | slugify | url_encode %}
+        <li>
+          <a href="{{ '/archives/' | relative_url }}">
+            All Posts
+            <span class="footer-count">{{ site.posts | size }}</span>
+          </a>
+        </li>
+        {% for post in site.posts limit: 3 %}
           <li>
-            <a href="{{ '/categories/' | append: cat_slug | append: '/' | relative_url }}">
-              {{- cat[0] -}}
-              <span class="footer-count">{{ cat[1].size }}</span>
+            <a href="{{ post.url | relative_url }}">
+              {{- post.title -}}
             </a>
           </li>
         {% endfor %}
       </ul>
     {% else %}
-      <p class="footer-empty">—</p>
+      <p class="footer-empty">
+        <a href="{{ '/archives/' | relative_url }}">All Posts</a>
+      </p>
     {% endif %}
   </div>
 

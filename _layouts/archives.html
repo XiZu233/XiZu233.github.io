@@ -1,0 +1,75 @@
+---
+layout: default
+script_includes:
+  - scroll-reveal
+---
+
+{% include lang.html %}
+
+<div id="archives" class="archive-timeline-page px-1 reveal-group">
+  {% assign last_year = '' %}
+  {% assign last_month = '' %}
+
+  {% for post in site.posts %}
+    {% assign post_year = post.date | date: '%Y' %}
+    {% assign post_month = post.date | date: '%m' %}
+
+    {% if post_year != last_year %}
+      {% if last_month != '' %}
+        </div>
+        {% assign last_month = '' %}
+      {% endif %}
+
+      {% if last_year != '' %}
+        </section>
+      {% endif %}
+
+      <section class="archive-year reveal">
+        <h2 class="year">{{ post_year }}</h2>
+      {% assign last_year = post_year %}
+    {% endif %}
+
+    {% if post_month != last_month %}
+      {% if last_month != '' %}
+        </div>
+      {% endif %}
+
+      <div class="archive-month-group">
+        <div class="month">{{ post.date | date: '%B' }}</div>
+      {% assign last_month = post_month %}
+    {% endif %}
+
+    <article class="archive-post">
+      <time class="post-day" datetime="{{ post.date | date_to_xmlschema }}">
+        {{ post.date | date: '%d' }}
+      </time>
+
+      <div class="archive-post-body">
+        <h3 class="post-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+
+        {% assign post_summary = post.description | default: post.excerpt %}
+        {% if post_summary %}
+          <p class="archive-post-desc">{{ post_summary | strip_html | normalize_whitespace | truncate: 180 }}</p>
+        {% endif %}
+
+        {% if post.tags.size > 0 %}
+          <div class="post-tags archive-post-tags">
+            {% for tag in post.tags %}
+              {% assign tag_slug = tag | slugify | url_encode %}
+              <a href="{{ site.baseurl }}/tags/{{ tag_slug }}/" class="post-tag no-text-decoration">
+                {{- tag -}}
+              </a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </article>
+  {% endfor %}
+
+  {% if site.posts.size > 0 %}
+      </div>
+    </section>
+  {% endif %}
+</div>

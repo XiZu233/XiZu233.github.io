@@ -1,7 +1,7 @@
 <!--
   Override of jekyll-theme-chirpy@7.5 _includes/sidebar.html
-  在 profile-wrapper </header> 后插入 .sidebar-issue 期刊号块；
-  其余 nav / sidebar-bottom 与上游保持一致。
+  在 profile-wrapper </header> 后插入 .sidebar-issue 状态块；
+  并跳过 hidden/nav_hidden tabs，让主导航收敛为 Home / Timeline / About。
 -->
 
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
@@ -21,8 +21,8 @@
   <!-- .profile-wrapper -->
 
   <div class="sidebar-issue meta-en" aria-hidden="true">
-    <span class="issue-label">Issue</span>
-    <span class="issue-number">No.{{ site.posts | size | prepend: '00' | slice: -3, 3 }}</span>
+    <span class="issue-label">Status</span>
+    <span class="issue-number">{{ site.posts | size }} Posts</span>
     <span class="issue-date">{{ site.time | date: '%Y / %m' }}</span>
   </div>
 
@@ -37,15 +37,17 @@
       </li>
       <!-- the real tabs -->
       {% for tab in site.tabs %}
-        <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
-          <a href="{{ tab.url | relative_url }}" class="nav-link">
-            <i class="fa-fw {{ tab.icon }}"></i>
-            {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
+        {% unless tab.hidden or tab.nav_hidden %}
+          <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
+            <a href="{{ tab.url | relative_url }}" class="nav-link">
+              <i class="fa-fw {{ tab.icon }}"></i>
+              {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
 
-            <span>{{ site.data.locales[include.lang].tabs.[tab_name] | default: tab.title | upcase }}</span>
-          </a>
-        </li>
-        <!-- .nav-item -->
+              <span>{{ site.data.locales[include.lang].tabs.[tab_name] | default: tab.title | upcase }}</span>
+            </a>
+          </li>
+          <!-- .nav-item -->
+        {% endunless %}
       {% endfor %}
     </ul>
   </nav>
