@@ -1,0 +1,132 @@
+{
+  "generatedAt": "2026-06-29T14:15:33.908Z",
+  "failures": [],
+  "report": [
+    {
+      "name": "home-light-desktop",
+      "url": "https://xizu233.github.io/?v=542b32f",
+      "screenshot": "E:\\00llm-wiki\\xizu-blog\\output\\playwright\\home-light-desktop.png",
+      "checks": {
+        "title": "Wenchen",
+        "nav": [
+          "首页",
+          "时间线",
+          "关于"
+        ],
+        "badNav": [],
+        "badWords": false,
+        "hasHero": 0,
+        "hasHeatmap": 0,
+        "hasTimeline": 1,
+        "hasResume": 0,
+        "hasPost": 16,
+        "bodyLength": 4004
+      }
+    },
+    {
+      "name": "home-dark-desktop",
+      "url": "https://xizu233.github.io/?v=542b32f",
+      "screenshot": "E:\\00llm-wiki\\xizu-blog\\output\\playwright\\home-dark-desktop.png",
+      "checks": {
+        "title": "Wenchen",
+        "nav": [
+          "首页",
+          "时间线",
+          "关于"
+        ],
+        "badNav": [],
+        "badWords": false,
+        "hasHero": 0,
+        "hasHeatmap": 0,
+        "hasTimeline": 1,
+        "hasResume": 0,
+        "hasPost": 16,
+        "bodyLength": 4004
+      }
+    },
+    {
+      "name": "archive-light-desktop",
+      "url": "https://xizu233.github.io/archives/?v=542b32f",
+      "screenshot": "E:\\00llm-wiki\\xizu-blog\\output\\playwright\\archive-light-desktop.png",
+      "checks": {
+        "title": "时间线 | Wenchen",
+        "nav": [
+          "首页",
+          "时间线",
+          "关于"
+        ],
+        "badNav": [],
+        "badWords": false,
+        "hasHero": 0,
+        "hasHeatmap": 0,
+        "hasTimeline": 0,
+        "hasResume": 0,
+        "hasPost": 11,
+        "bodyLength": 2403
+      }
+    },
+    {
+      "name": "about-light-desktop",
+      "url": "https://xizu233.github.io/about/?v=542b32f",
+      "screenshot": "E:\\00llm-wiki\\xizu-blog\\output\\playwright\\about-light-desktop.png",
+      "checks": {
+        "title": "关于 | Wenchen",
+        "nav": [
+          "首页",
+          "时间线",
+          "关于"
+        ],
+        "badNav": [],
+        "badWords": false,
+        "hasHero": 0,
+        "hasHeatmap": 0,
+        "hasTimeline": 0,
+        "hasResume": 6,
+        "hasPost": 5,
+        "bodyLength": 1178
+      }
+    },
+    {
+      "name": "post-light-desktop",
+      "url": "https://xizu233.github.io/posts/claude-code-workflow-reshaping/?v=542b32f",
+      "screenshot": "E:\\00llm-wiki\\xizu-blog\\output\\playwright\\post-light-desktop.png",
+      "checks": {
+        "title": "用 Claude Code 最佳实践重塑工作流：代理循环与四阶段方法论 | Wenchen",
+        "nav": [
+          "首页",
+          "时间线",
+          "关于"
+        ],
+        "badNav": [],
+        "badWords": false,
+        "hasHero": 0,
+        "hasHeatmap": 0,
+        "hasTimeline": 0,
+        "hasResume": 0,
+        "hasPost": 4,
+        "bodyLength": 6640
+      }
+    },
+    {
+      "name": "home-light-mobile",
+      "url": "https://xizu233.github.io/?v=542b32f",
+      "screenshot": "E:\\00llm-wiki\\xizu-blog\\output\\playwright\\home-light-mobile.png",
+      "checks": {
+        "title": "Wenchen",
+        "nav": [
+          "首页",
+          "时间线",
+          "关于"
+        ],
+        "badNav": [],
+        "badWords": false,
+        "hasHero": 0,
+        "hasHeatmap": 0,
+        "hasTimeline": 1,
+        "hasResume": 0,
+        "hasPost": 16,
+        "bodyLength": 3779
+      }
+    }
+  ]
+}
