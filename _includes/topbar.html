@@ -59,6 +59,96 @@
       {% endif %}
     </div>
 
+    {% unless site.theme_mode %}
+      <button
+        type="button"
+        id="topbar-mode-toggle"
+        class="btn btn-link text-decoration-none topbar-mode-toggle theme-mode-control"
+        aria-label="Switch Mode"
+        title="Switch Mode"
+        data-bs-toggle="tooltip"
+        data-bs-placement="bottom"
+        data-mode-control
+        data-mode-toggle-extra
+      >
+        <span class="theme-icon theme-icon-light" aria-hidden="true"><i class="fas fa-sun fa-fw"></i></span>
+        <span class="theme-icon theme-icon-dark" aria-hidden="true"><i class="fas fa-moon fa-fw"></i></span>
+      </button>
+
+      <script>
+        (function () {
+          'use strict';
+
+          var controlSelector = '[data-mode-control]';
+          var extraToggleSelector = '[data-mode-toggle-extra]';
+          var media = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : { matches: false };
+
+          function currentMode() {
+            if (window.Theme && Theme.visualState) {
+              return Theme.visualState;
+            }
+
+            return document.documentElement.getAttribute('data-mode') || (media.matches ? 'dark' : 'light');
+          }
+
+          function updateControls() {
+            var isDark = currentMode() === 'dark';
+            var label = isDark ? '切换到浅色模式' : '切换到深色模式';
+
+            document.querySelectorAll(controlSelector).forEach(function (control) {
+              var hasBootstrapTitle = control.hasAttribute('data-bs-original-title');
+
+              control.classList.toggle('is-dark', isDark);
+              control.setAttribute('aria-label', label);
+              control.setAttribute('data-bs-title', label);
+              control.setAttribute('data-bs-original-title', label);
+
+              if (hasBootstrapTitle) {
+                control.removeAttribute('title');
+              } else {
+                control.setAttribute('title', label);
+              }
+            });
+          }
+
+          function bindExtraToggles() {
+            document.querySelectorAll(extraToggleSelector).forEach(function (control) {
+              if (control.dataset.modeBound === 'true') {
+                return;
+              }
+
+              control.dataset.modeBound = 'true';
+              control.addEventListener('click', function () {
+                if (window.Theme && typeof Theme.flip === 'function') {
+                  Theme.flip();
+                }
+              });
+            });
+
+            updateControls();
+          }
+
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', bindExtraToggles);
+          } else {
+            bindExtraToggles();
+          }
+
+          window.addEventListener('message', function (event) {
+            if (event.source === window && event.data && event.data.id === 'theme-mode') {
+              updateControls();
+            }
+          });
+
+          if (typeof media.addEventListener === 'function') {
+            media.addEventListener('change', updateControls);
+          } else if (typeof media.addListener === 'function') {
+            media.addListener(updateControls);
+          }
+        })();
+      </script>
+    {% endunless %}
+
     <button type="button" id="search-trigger" class="btn btn-link" aria-label="Search">
       <i class="fas fa-search fa-fw"></i>
     </button>

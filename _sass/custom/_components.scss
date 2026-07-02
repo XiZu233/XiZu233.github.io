@@ -39,6 +39,59 @@
   color: var(--topbar-text-color);
 }
 
+.theme-mode-control {
+  width: 2.25rem;
+  height: 2.25rem;
+  min-width: 2.25rem;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--main-border-color);
+  border-radius: var(--qc-radius-sm);
+  color: var(--text-muted-color);
+  background: transparent;
+  line-height: 1;
+}
+
+.btn.theme-mode-control {
+  padding: 0;
+}
+
+.theme-mode-control:hover,
+.theme-mode-control:focus-visible {
+  color: var(--ink-accent);
+  background: var(--btn-hover-bg);
+  border-color: var(--ink-accent);
+}
+
+.theme-mode-control:focus-visible {
+  outline: 2px solid rgba(var(--ink-accent-rgb), 0.28);
+  outline-offset: 2px;
+}
+
+.theme-mode-control .theme-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-mode-control .theme-icon-light,
+.theme-mode-control.is-dark .theme-icon-dark {
+  display: none;
+}
+
+.theme-mode-control.is-dark .theme-icon-light {
+  display: inline-flex;
+}
+
+#topbar .topbar-mode-toggle {
+  display: none;
+  margin-left: auto;
+  margin-right: 0.25rem;
+  color: var(--topbar-text-color);
+}
+
 /* ===== 侧边栏 ===== */
 #sidebar {
   background: var(--sidebar-bg);
@@ -71,6 +124,29 @@
 
 #sidebar .nav-item span {
   font-weight: 500;
+}
+
+#sidebar .sidebar-bottom .theme-mode-control {
+  margin-right: 0.25rem;
+}
+
+#sidebar .sidebar-bottom #mode-toggle.theme-mode-control {
+  color: var(--text-muted-color);
+}
+
+#sidebar .sidebar-bottom #mode-toggle.theme-mode-control:hover,
+#sidebar .sidebar-bottom #mode-toggle.theme-mode-control:focus-visible {
+  color: var(--ink-accent);
+}
+
+#sidebar .sidebar-bottom .theme-mode-control i {
+  width: 1em;
+}
+
+@media (max-width: 1199px) {
+  #topbar .topbar-mode-toggle {
+    display: inline-flex;
+  }
 }
 
 /* ===== 标签 ===== */
